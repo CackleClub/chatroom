@@ -27,7 +27,6 @@
         <button  onclick="transmitMessage()">Send</button>
         <script>
             function boi(){textarea.scrollTop = textarea.scrollHeight}
-            var $ = require('jquery');
             var textarea = document.getElementById("demo");
             // Create a new WebSocket.
             var socket  = new WebSocket('ws://0.tcp.ngrok.io:17704');
