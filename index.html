@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style>
+
+            * {
+              margin: 0px;
+            }
+            input, button { padding: 10px; }
+            textarea {
+              resize: none;
+              width: 100%;
+              height: 600px;
+            }
+            #message {
+              width: 70%;
+            }
+            button {
+              width: 29%;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+      
+        <textarea disabled id="demo"></textarea>
+        <input type="text" id="message" />
+        <button  onclick="transmitMessage()">Send</button>
+        <script>
+            function boi(){textarea.scrollTop = textarea.scrollHeight}
+            var $ = require('jquery');
+            var textarea = document.getElementById("demo");
+            // Create a new WebSocket.
+            var socket  = new WebSocket('ws://cackleclub.com:8080');
+
+            // Define the
+            var message = document.getElementById('message');
+
+            function transmitMessage() {
+                socket.send( message.value );
+                $("textarea").append("You : " + message.value + "\n");
+                boi();
+            }
+
+            //setInterval(function(boi){textarea.scrollTop = textarea.scrollHeight}, 50);
+
+            socket.onmessage = function(e) {
+                $("textarea").append(e.data + "\n");
+                boi();
+            }
+        </script>
+    </body>
+</html>
