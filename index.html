@@ -40,8 +40,6 @@
                 boi();
             }
 
-            setInterval(function(boi){textarea.scrollTop = textarea.scrollHeight}, 1000);
-
             socket.onmessage = function(e) {
                 $("textarea").append(e.data + "\n");
                 boi();
