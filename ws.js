@@ -16,7 +16,7 @@ $(function () {
     $('span').hide();
     return;
   }  // open connection
-  var connection = new WebSocket('ws://cackleclub.com:1337');  connection.onopen = function () {
+  var connection = new WebSocket('wss://cackleclub.com:1337');  connection.onopen = function () {
     // first we want users to enter their names
     input.removeAttr('disabled');
     status.text('Choose name:');
